@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* GSAP ScrollTrigger manages scroll, keep this auto */
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ── Hero letter styles ── */
+.hero-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+/* ── Stat card initial state ── */
+.stat-card {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+}
+
+/* ── Road / track ── */
+.road-track {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Car element ── */
+.car-element {
+  will-change: transform;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* ── Trail ── */
+.trail-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #45db7d, #def54f);
+  will-change: width;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── Stat boxes initial ── */
+.stat-box {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ── Value letter in road ── */
+.value-letter {
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.08s ease;
+}
