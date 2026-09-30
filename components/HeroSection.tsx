@@ -347,7 +347,7 @@ export default function HeroSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 ref={carRef}
-                src="/car.svg"
+                src="/car.png"
                 alt="ItzFizz car"
                 className="car-element"
                 style={{
