@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const HEADLINE = "WELCOME ITZFIZZ";
 
-const HEADLINE = "WELCOME ITZFIZZ";
-
 /* ─────────────────────────────────────────────
    Component
 ───────────────────────────────────────────── */
