@@ -4,62 +4,20 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-/* ─────────────────────────────────────────────
-   Types
-───────────────────────────────────────────── */
-interface Stat {
-  id: string;
-  value: string;
-  label: string;
-  color: string; // Tailwind bg class
-  textColor: string; // Tailwind text class
-}
-
 const HEADLINE = "WELCOME ITZFIZZ";
 
-const STATS: Stat[] = [
-  {
-    id: "s1",
-    value: "58%",
-    label: "Increase in pick up point use",
-    color: "bg-[#def54f]",
-    textColor: "text-[#111]",
-  },
-  {
-    id: "s2",
-    value: "23%",
-    label: "Decreased in customer phone calls",
-    color: "bg-[#6ac9ff]",
-    textColor: "text-[#111]",
-  },
-  {
-    id: "s3",
-    value: "27%",
-    label: "Increase in pick up point use",
-    color: "bg-[#333333]",
-    textColor: "text-white",
-  },
-  {
-    id: "s4",
-    value: "40%",
-    label: "Decreased in customer phone calls",
-    color: "bg-[#fa7328]",
-    textColor: "text-[#111]",
-  },
-];
+const HEADLINE = "WELCOME ITZFIZZ";
 
 /* ─────────────────────────────────────────────
    Component
 ───────────────────────────────────────────── */
 export default function HeroSection() {
-  /* Refs for DOM elements */
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const roadRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLImageElement>(null);
   const trailRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   /* refs for in-road value letters */
   const roadLettersRef = useRef<HTMLSpanElement[]>([]);
 
@@ -79,18 +37,6 @@ export default function HeroSection() {
         stagger: 0.045,
         ease: "power3.out",
         delay: 0.2,
-      });
-
-      /* Staggered fade-up for stat cards */
-      const statCards = gsap.utils.toArray<HTMLElement>(".stat-card");
-
-      gsap.to(statCards, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: "power2.out",
-        delay: 0.9,
       });
 
       /* ── 2. SCROLL ANIMATION ───────────────────────
@@ -203,7 +149,7 @@ export default function HeroSection() {
           ref={trackRef}
           className="road-track flex flex-col items-center justify-center bg-[#121212]"
         >
-          {/* ── TOP: Headline + Stats ── */}
+          {/* ── TOP: Headline only ── */}
           <div className="w-full px-6 md:px-16 pt-12 pb-4 flex flex-col items-center gap-6 z-10">
             {/* Headline */}
             <div
@@ -230,27 +176,6 @@ export default function HeroSection() {
                   </span>
                 )
               )}
-            </div>
-
-            {/* Stats row */}
-            <div
-              ref={statsRef}
-              className="flex flex-wrap justify-center gap-4 mt-2"
-            >
-              {STATS.map((stat) => (
-                <div
-                  key={stat.id}
-                  className={`stat-card ${stat.color} ${stat.textColor} rounded-xl px-6 py-4 flex flex-col gap-1 min-w-[160px]`}
-                  style={{ opacity: 0, transform: "translateY(20px)" }}
-                >
-                  <span className="text-4xl font-bold leading-none">
-                    {stat.value}
-                  </span>
-                  <span className="text-sm font-medium leading-snug max-w-[140px]">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
 
